@@ -6,9 +6,10 @@ services:
       - "6000:6000"
       - "5900:5900"
     command: "/entrypoint.sh"
-  playground:
-    build: ./playground
+  chrome:
+    build: ./chrome
     depends_on:
       - xvfb
     environment:
-      - DISPLAY="xvfb:0"
+      - DISPLAY=xvfb:0
+    command: "/entrypoint.sh"
