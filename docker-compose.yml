@@ -3,12 +3,12 @@ services:
   xvfb:
     build: ./xvfb
     ports:
-      - "6001:6001"
       - "6000:6000"
       - "5900:5900"
+    command: "/entrypoint.sh"
   playground:
     build: ./playground
     depends_on:
       - xvfb
     environment:
-      - DISPLAY="xvfb:0.0"
+      - DISPLAY="xvfb:0"
